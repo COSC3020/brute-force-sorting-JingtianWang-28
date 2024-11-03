@@ -32,6 +32,14 @@ When randomly generating permutations, as the size of the array approaches infin
 
 ###
 Sources: Chatgpt provided me with some structure of how to generate all permutations in the generatePermutations function and receive the array and the starting position of the permutation.Just some basic syntax and basic code logic.\
+Including a pseudo code: "Benchmark condition: start == arr.length - 1, add a copy of arr to permutations, traverse i from start to arr.length - 1, swap arr[start] and arr[i], generatePermutations(arr, start + 1) recursive call, backtrack (swap back to the original position)"
+
+And a code example of generate object:
+function generatePermutations(arr, start = 0) {
+if (start === arr.length - 1) {
+permutations.push([...arr]);
+return;
+}\
 
 I finished configuring the construction of the three function parts and explained the time complexity of the three cases.\
 
