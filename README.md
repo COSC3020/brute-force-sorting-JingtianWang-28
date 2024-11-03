@@ -31,7 +31,7 @@ When randomly generating permutations, as the size of the array approaches infin
 
 
 ###
-Sources: Chatgpt provided me with some structure of how to generate all permutations in the generatePermutations function and receive the array and the starting position of the permutation.\
+Sources: Chatgpt provided me with some structure of how to generate all permutations in the generatePermutations function and receive the array and the starting position of the permutation.Just some basic syntax and basic code logic.\
 
 I finished configuring the construction of the three function parts and explained the time complexity of the three cases.\
 
