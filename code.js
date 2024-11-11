@@ -7,29 +7,30 @@ function isSorted(arr) {
     return true;
 }
 
-function* generatePermutations(arr) {
-    if (arr.length <= 1) {
-        yield arr;
-    } else {
-        for (let i = 0; i < arr.length; i++) {
-            let rest = arr.slice(0, i).concat(arr.slice(i + 1));
-            for (let perm of generatePermutations(rest)) {
-                yield [arr[i]].concat(perm);
-            }
-        }
-    }
-}
-
-function permutationSort(a) {
+function permutationSort(arr) {
     let count = 0;
-    for (let perm of generatePermutations(a)) {
-        count++;
-        if (isSorted(perm)) {
-            for (let i = 0; i < a.length; i++) {
-                a[i] = perm[i];
+    let sorted = false;
+
+    function permute(subArr, startIndex) {
+        if (startIndex === subArr.length - 1) {
+            count++;
+            if (isSorted(subArr)) {
+                for (let i = 0; i < arr.length; i++) {
+                    arr[i] = subArr[i];
+                }
+                sorted = true;
             }
-            return count;
+            return;
+        }
+
+        for (let i = startIndex; i < subArr.length; i++) {
+            [subArr[startIndex], subArr[i]] = [subArr[i], subArr[startIndex]];
+            permute(subArr, startIndex + 1);
+            if (sorted) return; 
+            [subArr[startIndex], subArr[i]] = [subArr[i], subArr[startIndex]];
         }
     }
+
+    permute(arr, 0);
     return count;
 }
